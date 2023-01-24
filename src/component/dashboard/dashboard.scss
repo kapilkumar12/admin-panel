@@ -1,0 +1,140 @@
+.sidebar {
+  flex: 1;
+  border-right: 0.5px solid rgb(230, 227, 227);
+  min-height: 100vh;
+  background-color: black;
+
+  .top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #6439ff;
+    }
+  }
+
+  hr {
+    height: 0;
+    border: 0.5px solid rgb(230, 227, 227);
+  }
+
+  .center {
+    padding-left: 10px;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .title {
+        font-size: 10px;
+        font-weight: bold;
+        color: #999;
+        margin-top: 15px;
+        margin-bottom: 5px;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #ece8ff;
+        }
+
+        .icon {
+          font-size: 18px;
+          color: #7451f8;
+        }
+
+        span{
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .bottom{
+      display: flex;
+      align-items: center;
+      margin: 10px;
+
+      .colorOption{
+          width: 20px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid #7451f8;
+          cursor: pointer;
+          margin: 5px;
+
+          &:nth-child(1){
+              background-color: whitesmoke;
+          }
+          &:nth-child(2){
+              background-color: #333;
+          }
+          &:nth-child(3){
+              background-color: darkblue;
+          }
+      }
+  }
+}
+
+.revenueicon{
+  background: rgba(0, 0, 255, 0.479);
+  color: white;
+  border-radius: 5px;
+ max-width: 100%;
+ width: 40px;
+ height: 40px;
+ text-align:center;
+ margin: 5px;
+
+ .icon{
+margin: 7px;
+ }
+}
+.revenueb{
+  margin-top:-15px;
+  font-weight: bold;
+}
+.revenuep{
+  background:whitesmoke;
+  text-align: center;
+border-radius: 10px;
+  p{
+color: rgba(0, 128, 0, 0.889);
+margin-top: 25px;
+  }
+}
+.orders{
+  color: red;
+  background:rgba(255, 0, 0, 0.2);
+  margin-top: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+.overviewp{
+  color: rgba(0, 128, 0, 0.907);
+  background: rgba(0, 128, 0, 0.359);
+  border-radius: 10px;
+}
+.productp{
+  
+  background:grey;
+  border-radius: 10px;
+   text-align: center; 
+   margin-top:10px 
+}
+.revenu{
+  font-size:15px
+}
