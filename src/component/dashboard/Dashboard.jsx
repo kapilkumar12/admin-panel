@@ -242,12 +242,7 @@ const Dashboard = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-9">
-                      <div
-                        id="chartContainer"
-                        style="height: 300px; width: 100%;"
-                      ></div>
-                    </div>
+                    <div className="col-lg-9"></div>
                   </div>
                 </div>
                 {/* overview section end */}
@@ -357,7 +352,7 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </div>
-
+                  <hr />
                   <div>
                     <div className="row text-center p-3">
                       <div className="col-lg-6">
@@ -369,7 +364,23 @@ const Dashboard = () => {
                     </div>
 
                     <div>
-                      {/* <SemiCircleProgressBar percentage={33} showPercentValue />; */}
+                      <div
+                        role="progressbar"
+                        aria-valuenow="76"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        className="progressvalue m-5"
+                      ></div>
+
+                      <div className="text-center">
+                        <h5>$26,2256</h5>
+                        <p>Earning this Month</p>
+                        <p>
+                          <span className="overviewp">+2.65%</span> From
+                          previous period
+                        </p>
+                      </div>
+                      <hr />
                     </div>
                     <div>
                       <h5>Recent Activity</h5>
