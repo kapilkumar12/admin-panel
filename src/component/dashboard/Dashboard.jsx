@@ -1,5 +1,6 @@
 import React from "react";
-// import $ from "jquery";
+
+// import SemiCircleProgressBar from "react-progressbar-semicircle";
 
 import "./dashboard.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -17,23 +18,41 @@ import WorkIcon from "@mui/icons-material/Work";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import FilterFramesIcon from "@mui/icons-material/FilterFrames";
 import GroupIcon from "@mui/icons-material/Group";
+import InfoIcon from "@mui/icons-material/Info";
+import SearchIcon from "@mui/icons-material/Search";
+import FlagIcon from "@mui/icons-material/Flag";
+import NotificationAddIcon from "@mui/icons-material/NotificationAdd";
+import SettingsIcon from "@mui/icons-material/Settings";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Dashboard = () => {
+  const toggle = () => {
+    var x = document.getElementById("sidebar");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  };
+
   return (
     <>
       {/* sidebar start */}
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-2">
-            <div className="wrapper"></div>
+            {/* <div className="wrapper"></div> */}
             <div className="sidebar">
               <div className="top">
-                <a href="/" style={{ textDecoration: "none" }}>
+                <a style={{ textDecoration: "none" }}>
                   <span className="logo">Admin Panel</span>
                 </a>
+                <div className="m-3" onClick={toggle}>
+                  <MenuIcon className="icon bg-light" />
+                </div>
               </div>
               <hr />
-              <div className="center">
+              <div className="center" id="sidebar">
                 <ul>
                   <p className="title">MAIN</p>
                   <li>
@@ -100,206 +119,293 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-7">
-            <p>Dashboard</p>
-            {/* revenue, orders, customers section start */}
+          <div className="col-lg-10">
+            {/* navbar start */}
+            <nav className="d-flex justify-content-between p-2">
+              <div>Dashboard</div>
+              <div>
+                <SearchIcon className="icon m-1" />
+                <FlagIcon className="icon m-1" />
+                <DashboardIcon className="icon m-1" />
+                <NotificationAddIcon className="icon m-1" />
+                <SettingsIcon className="icon m-1" />
+                <img src="/images/profile.jpg" className="profileImg" alt="" />
+              </div>
+            </nav>
+            {/* navbar end */}
+
             <div className="row">
-              <div className="col-lg-4">
-                <div className="revenue shadow-lg p-1  bg-white rounded">
-                  <div className="row">
-                    <div className="col-lg-8 d-flex">
-                      <div className="revenueicon">
-                        <MonetizationOnIcon className="icon " />
-                      </div>
-                      <div>
-                        <p>Revenue</p>
-                        <p className="revenueb">$21,456</p>
+              <div className="col-lg-9">
+                {/* revenue, orders, customers section start */}
+                <div className="row">
+                  <div className="col-lg-4">
+                    <div className="revenue shadow-lg p-1  bg-white rounded">
+                      <div className="row">
+                        <div className="col-lg-8 d-flex">
+                          <div className="revenueicon">
+                            <MonetizationOnIcon className="icon " />
+                          </div>
+                          <div>
+                            <p>Revenue</p>
+                            <p className="revenueb">$21,456</p>
+                          </div>
+                        </div>
+                        <div className="col-lg-4">
+                          <div className="revenuep">
+                            <p>+ 2.65%</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-lg-4">
-                      <div className="revenuep">
-                        <p>+ 2.65%</p>
+                  </div>
+                  <div className="col-lg-4">
+                    <div className="revenue shadow-lg p-1  bg-white rounded">
+                      <div className="row">
+                        <div className="col-lg-8 d-flex">
+                          <div className="revenueicon">
+                            <FilterFramesIcon className="icon " />
+                          </div>
+                          <div>
+                            <p>Orders</p>
+                            <p className="revenueb">5,643</p>
+                          </div>
+                        </div>
+                        <div className="col-lg-4">
+                          <div className="orders">
+                            <p>- 0.82%</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-lg-4">
+                    <div className="revenue shadow-lg p-1  bg-white rounded">
+                      <div className="row">
+                        <div className="col-lg-8 d-flex">
+                          <div className="revenueicon">
+                            <GroupIcon className="icon " />
+                          </div>
+                          <div>
+                            <p>Customers</p>
+                            <p className="revenueb">45,254</p>
+                          </div>
+                        </div>
+                        <div className="col-lg-4">
+                          <div className="orders">
+                            <p>- 1.04%</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="revenue shadow-lg p-1  bg-white rounded">
+                {/* revenue, orders, customers section end */}
+                {/* overview section start */}
+                <div className="row revenue shadow-lg p-1  bg-white rounded mt-5">
+                  <h5>Overview</h5>
                   <div className="row">
-                    <div className="col-lg-8 d-flex">
-                      <div className="revenueicon">
-                        <FilterFramesIcon className="icon " />
-                      </div>
+                    <div className="col-lg-3 p-2">
                       <div>
-                        <p>Orders</p>
-                        <p className="revenueb">5,643</p>
+                        <p>This Month</p>
+                        <p className="revenueb">
+                          $24,568 <span className="overviewp">+2.65%</span>
+                        </p>
+                      </div>
+                      <div className="row">
+                        <div className="col-lg-6">
+                          <p>Orders</p>
+                          <p className="revenueb">5,643</p>
+                        </div>
+                        <div className="col-lg-6">
+                          <p>sales</p>
+                          <p className="revenueb">16,273</p>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-lg-6">
+                          <p>Order Value</p>
+                          <p className="revenueb">12.03%</p>
+                        </div>
+                        <div className="col-lg-6">
+                          <p>Customers</p>
+                          <p className="revenueb">21,456</p>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-lg-6">
+                          <p>Income</p>
+                          <p className="revenueb">$35,652</p>
+                        </div>
+                        <div className="col-lg-6">
+                          <p>Experince</p>
+                          <p className="revenueb">$12,248</p>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-lg-4">
-                      <div className="orders">
-                        <p>- 0.82%</p>
-                      </div>
-                    </div>
+                    <div className="col-lg-4"></div>
                   </div>
                 </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="revenue shadow-lg p-1  bg-white rounded">
-                  <div className="row">
-                    <div className="col-lg-8 d-flex">
-                      <div className="revenueicon">
-                        <GroupIcon className="icon " />
-                      </div>
-                      <div>
-                        <p>Customers</p>
-                        <p className="revenueb">45,254</p>
-                      </div>
-                    </div>
-                    <div className="col-lg-4">
-                      <div className="orders">
-                        <p>- 1.04%</p>
-                      </div>
-                    </div>
+                {/* overview section end */}
+                {/* user, order,product section start */}
+                <div className="row">
+                  <div className="col-lg-4">
+                    <div className="shadow-lg p-1  bg-white rounded mt-5"></div>
                   </div>
-                </div>
-              </div>
-            </div>
-            {/* revenue, orders, customers section end */}
+                  <div className="col-lg-4">
+                    <div className="shadow-lg p-1  bg-white rounded mt-5"></div>
+                  </div>
+                  <div className="col-lg-4">
+                    <div className="shadow-lg p-1  bg-white rounded mt-5">
+                      <div className="d-flex justify-content-between">
+                        <h5>Top Product</h5>
+                        <div>
+                          <select
+                            className="form-select border-0"
+                            aria-label="Default select example"
+                          >
+                            <option defaultValue="0">Monthly</option>
+                            <option value="1">Weekaly</option>
+                            <option value="2">Yearly</option>
+                          </select>
+                        </div>
+                      </div>
 
-            {/* overview section start */}
-
-            <div className="row revenue shadow-lg p-1  bg-white rounded mt-5">
-              <h5>Overview</h5>
-              <div className="row">
-                <div className="col-lg-3 p-2">
+                      <div>
+                        <div className="row">
+                          <div className="col-lg-8 d-flex">
+                            <div className="revenueicon">
+                              <p className="icon ">#1</p>
+                            </div>
+                            <div>
+                              <p className="revenu">Polo blue T-shirt</p>
+                              <p className="revenueb">$25.4</p>
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            <div className="productp">
+                              <p>3.82k</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="row">
+                          <div className="col-lg-8 d-flex">
+                            <div className="revenueicon">
+                              <p className="icon ">#2</p>
+                            </div>
+                            <div>
+                              <p>hoodle for men</p>
+                              <p className="revenueb">$25.4</p>
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            <div className="productp">
+                              <p>3.14k</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="row">
+                          <div className="col-lg-8 d-flex">
+                            <div className="revenueicon">
+                              <p className="icon ">#3</p>
+                            </div>
+                            <div>
+                              <p>Red color Cap</p>
+                              <p className="revenueb">$25.4</p>
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            <div className="productp">
+                              <p>2.84k</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* user, order,product section end */}
+              </div>
+              {/* </div> */}
+              <div className="col-lg-3">
+                {/* profile */}
+                {/* <div className="col-lg-3"> */}
+                <div className="shadow-lg p-1  bg-white rounded">
+                  <div className="profile-head"></div>
+                  <div className="profile text-center">
+                    <img src="/images/profile.jpg" alt="" />
+                    <h5>Jonny Bennett</h5>
+                    <p>Product Designer</p>
+                  </div>
                   <div>
-                    <p>This Month</p>
-                    <p className="revenueb">
-                      $24,568 <span className="overviewp">+2.65%</span>
-                    </p>
-                  </div>
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <p>Orders</p>
-                      <b>5,643</b>
-                    </div>
-                    <div className="col-lg-6">
-                      <p>sales</p>
-                      <b>16,273</b>
+                    <div className="row text-center p-3">
+                      <div className="col-lg-6">
+                        <p className="revenueb">12,69</p>
+                        <p>Products</p>
+                      </div>
+                      <div className="col-lg-6">
+                        <p className="revenueb">52.2k</p>
+                        <p>Followers</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <p>Order Value</p>
-                      <b>12.03%</b>
-                    </div>
-                    <div className="col-lg-6">
-                      <p>Customers</p>
-                      <b>21,456</b>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <p>Income</p>
-                      <b>$35,652</b>
-                    </div>
-                    <div className="col-lg-6">
-                      <p>Experince</p>
-                      <b>$12,248</b>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4"></div>
-              </div>
-            </div>
-            {/* overview section end */}
 
-            {/* user, order,product section start */}
-            <div className="row">
-              <div className="col-lg-4">
-                <div className="shadow-lg p-1  bg-white rounded mt-5"></div>
-              </div>
-              <div className="col-lg-4">
-                <div className="shadow-lg p-1  bg-white rounded mt-5"></div>
-              </div>
-              <div className="col-lg-4">
-                <div className="shadow-lg p-1  bg-white rounded mt-5">
-                  <div className="d-flex justify-content-between">
-                    <h5>Top Product</h5>
+                  <div>
+                    <div className="row text-center p-3">
+                      <div className="col-lg-6">
+                        <h5>Earning</h5>
+                      </div>
+                      <div className="col-lg-6">
+                        <InfoIcon className="icon" />
+                      </div>
+                    </div>
+
                     <div>
-                      <select
-                        class="form-select border-0"
-                        aria-label="Default select example"
-                      >
-                        <option selected>Monthly</option>
-                        <option value="1">Weekaly</option>
-                        <option value="2">Yearly</option>
-                      </select>
+                      {/* <SemiCircleProgressBar percentage={33} showPercentValue />; */}
                     </div>
-                  </div>
-
-                  <div>
-                    <div className="row">
-                      <div className="col-lg-8 d-flex">
-                        <div className="revenueicon">
-                          <p className="icon ">#1</p>
+                    <div>
+                      <h5>Recent Activity</h5>
+                      <div className="d-flex">
+                        <div className="activity">
+                          <p>12 sep</p>
                         </div>
                         <div>
-                          <p className="revenu">Polo blue T-shirt</p>
-                          <p className="revenueb">$25.4</p>
+                          <p className="mt-3">
+                            Responded to need "Volunteer Activities"
+                          </p>
                         </div>
                       </div>
-                      <div className="col-lg-4">
-                        <div className="productp">
-                          <p>3.82k</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="row">
-                      <div className="col-lg-8 d-flex">
-                        <div className="revenueicon">
-                          <p className="icon ">#2</p>
+                      <div className="d-flex">
+                        <div className="activity">
+                          <p>11 sep</p>
                         </div>
                         <div>
-                          <p>hoodle for men</p>
-                          <p className="revenueb">$25.4</p>
+                          <p className="mt-3">
+                            Responded to need "Volunteer Activities"
+                          </p>
                         </div>
                       </div>
-                      <div className="col-lg-4">
-                        <div className="productp">
-                          <p>3.14k</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="row">
-                      <div className="col-lg-8 d-flex">
-                        <div className="revenueicon">
-                          <p className="icon ">#3</p>
+                      <div className="d-flex">
+                        <div className="activity">
+                          <p>10 sep</p>
                         </div>
                         <div>
-                          <p>Red color Cap</p>
-                          <p className="revenueb">$25.4</p>
-                        </div>
-                      </div>
-                      <div className="col-lg-4">
-                        <div className="productp">
-                          <p>2.84k</p>
+                          <p className="mt-3">
+                            Responded to need "Volunteer Activities"
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                {/* profile section end*/}
               </div>
             </div>
-            {/* user, order,product section end */}
           </div>
         </div>
-        <div className="col-lg-3"></div>
       </div>
     </>
   );
