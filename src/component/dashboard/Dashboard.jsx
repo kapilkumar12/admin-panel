@@ -242,7 +242,12 @@ const Dashboard = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-4"></div>
+                    <div className="col-lg-9">
+                      <div
+                        id="chartContainer"
+                        style="height: 300px; width: 100%;"
+                      ></div>
+                    </div>
                   </div>
                 </div>
                 {/* overview section end */}
